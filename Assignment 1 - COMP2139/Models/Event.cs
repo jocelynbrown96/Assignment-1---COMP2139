@@ -17,6 +17,9 @@ public class Event
 
     [Range(0, int.MaxValue)]
     public int AvailableTickets { get; set; }
+    
+    [Required]
+    public string Location { get; set; } = string.Empty; 
 
     // Foreign key
     public int CategoryId { get; set; }

@@ -3,6 +3,7 @@ using System;
 using Assignment_1___COMP2139.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Assignment_1___COMP2139.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251010163358_AddConcertsAndSports")]
+    partial class AddConcertsAndSports
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,10 +76,6 @@ namespace Assignment_1___COMP2139.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<decimal>("TicketPrice")
                         .HasColumnType("numeric");
 
@@ -94,122 +93,110 @@ namespace Assignment_1___COMP2139.Migrations
                         new
                         {
                             Id = 1,
-                            AvailableTickets = 50,
+                            AvailableTickets = 500,
                             CategoryId = 1,
-                            Date = new DateTime(2025, 10, 20, 17, 8, 53, 997, DateTimeKind.Utc).AddTicks(6588),
-                            Location = "London, UK",
+                            Date = new DateTime(2025, 10, 20, 16, 33, 57, 784, DateTimeKind.Utc).AddTicks(2605),
                             TicketPrice = 150.00m,
-                            Title = "Adele Live"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            AvailableTickets = 100,
-                            CategoryId = 1,
-                            Date = new DateTime(2025, 10, 25, 17, 8, 53, 997, DateTimeKind.Utc).AddTicks(6594),
-                            Location = "Toronto, Canada",
-                            TicketPrice = 120.00m,
-                            Title = "The Weeknd World Tour"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            AvailableTickets = 200,
-                            CategoryId = 1,
-                            Date = new DateTime(2025, 10, 30, 17, 8, 53, 997, DateTimeKind.Utc).AddTicks(6596),
-                            Location = "Paris, France",
-                            TicketPrice = 110.00m,
-                            Title = "Coldplay Stadium Show"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AvailableTickets = 75,
-                            CategoryId = 1,
-                            Date = new DateTime(2025, 11, 4, 17, 8, 53, 997, DateTimeKind.Utc).AddTicks(6597),
-                            Location = "New York, USA",
-                            TicketPrice = 250.00m,
                             Title = "Taylor Swift: The Eras Tour"
                         },
                         new
                         {
-                            Id = 5,
-                            AvailableTickets = 150,
+                            Id = 2,
+                            AvailableTickets = 400,
                             CategoryId = 1,
-                            Date = new DateTime(2025, 11, 9, 17, 8, 53, 997, DateTimeKind.Utc).AddTicks(6599),
-                            Location = "Seoul, South Korea",
-                            TicketPrice = 180.00m,
-                            Title = "BTS Reunion"
+                            Date = new DateTime(2025, 10, 30, 16, 33, 57, 784, DateTimeKind.Utc).AddTicks(2611),
+                            TicketPrice = 120.00m,
+                            Title = "Coldplay: Music of the Spheres"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AvailableTickets = 300,
+                            CategoryId = 1,
+                            Date = new DateTime(2025, 11, 9, 16, 33, 57, 784, DateTimeKind.Utc).AddTicks(2612),
+                            TicketPrice = 110.00m,
+                            Title = "Billie Eilish Live"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AvailableTickets = 350,
+                            CategoryId = 1,
+                            Date = new DateTime(2025, 11, 19, 16, 33, 57, 784, DateTimeKind.Utc).AddTicks(2614),
+                            TicketPrice = 100.00m,
+                            Title = "Bruno Mars Night"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AvailableTickets = 250,
+                            CategoryId = 1,
+                            Date = new DateTime(2025, 11, 29, 16, 33, 57, 784, DateTimeKind.Utc).AddTicks(2615),
+                            TicketPrice = 200.00m,
+                            Title = "Adele: One Night Only"
                         },
                         new
                         {
                             Id = 6,
-                            AvailableTickets = 120,
+                            AvailableTickets = 450,
                             CategoryId = 1,
-                            Date = new DateTime(2025, 11, 14, 17, 8, 53, 997, DateTimeKind.Utc).AddTicks(6600),
-                            Location = "Dublin, Ireland",
-                            TicketPrice = 95.00m,
-                            Title = "Ed Sheeran Acoustic Night"
+                            Date = new DateTime(2025, 12, 9, 16, 33, 57, 784, DateTimeKind.Utc).AddTicks(2616),
+                            TicketPrice = 130.00m,
+                            Title = "Ed Sheeran: Mathematics Tour"
                         },
                         new
                         {
                             Id = 7,
-                            AvailableTickets = 200,
+                            AvailableTickets = 1000,
                             CategoryId = 2,
-                            Date = new DateTime(2025, 11, 19, 17, 8, 53, 997, DateTimeKind.Utc).AddTicks(6602),
-                            Location = "Berlin, Germany",
-                            TicketPrice = 300.00m,
-                            Title = "Champions League Final"
+                            Date = new DateTime(2025, 10, 25, 16, 33, 57, 784, DateTimeKind.Utc).AddTicks(2618),
+                            TicketPrice = 90.00m,
+                            Title = "NBA Finals Game 1"
                         },
                         new
                         {
                             Id = 8,
-                            AvailableTickets = 180,
+                            AvailableTickets = 2000,
                             CategoryId = 2,
-                            Date = new DateTime(2025, 11, 24, 17, 8, 53, 997, DateTimeKind.Utc).AddTicks(6603),
-                            Location = "Los Angeles, USA",
-                            TicketPrice = 350.00m,
-                            Title = "NBA All-Star Game"
+                            Date = new DateTime(2025, 11, 4, 16, 33, 57, 784, DateTimeKind.Utc).AddTicks(2619),
+                            TicketPrice = 250.00m,
+                            Title = "Super Bowl LVIII"
                         },
                         new
                         {
                             Id = 9,
-                            AvailableTickets = 80,
+                            AvailableTickets = 1500,
                             CategoryId = 2,
-                            Date = new DateTime(2025, 11, 29, 17, 8, 53, 997, DateTimeKind.Utc).AddTicks(6604),
-                            Location = "London, UK",
-                            TicketPrice = 220.00m,
-                            Title = "Wimbledon Finals"
+                            Date = new DateTime(2025, 11, 14, 16, 33, 57, 784, DateTimeKind.Utc).AddTicks(2620),
+                            TicketPrice = 75.00m,
+                            Title = "World Cup Qualifier"
                         },
                         new
                         {
                             Id = 10,
-                            AvailableTickets = 300,
+                            AvailableTickets = 1200,
                             CategoryId = 2,
-                            Date = new DateTime(2025, 12, 4, 17, 8, 53, 997, DateTimeKind.Utc).AddTicks(6606),
-                            Location = "Las Vegas, USA",
-                            TicketPrice = 500.00m,
-                            Title = "Super Bowl LX"
+                            Date = new DateTime(2025, 11, 24, 16, 33, 57, 784, DateTimeKind.Utc).AddTicks(2621),
+                            TicketPrice = 95.00m,
+                            Title = "Stanley Cup Final"
                         },
                         new
                         {
                             Id = 11,
-                            AvailableTickets = 250,
+                            AvailableTickets = 500,
                             CategoryId = 2,
-                            Date = new DateTime(2025, 12, 9, 17, 8, 53, 997, DateTimeKind.Utc).AddTicks(6607),
-                            Location = "Monaco",
-                            TicketPrice = 400.00m,
-                            Title = "Formula 1 Grand Prix"
+                            Date = new DateTime(2025, 12, 4, 16, 33, 57, 784, DateTimeKind.Utc).AddTicks(2623),
+                            TicketPrice = 180.00m,
+                            Title = "Wimbledon Finals"
                         },
                         new
                         {
                             Id = 12,
-                            AvailableTickets = 500,
+                            AvailableTickets = 800,
                             CategoryId = 2,
-                            Date = new DateTime(2025, 12, 14, 17, 8, 53, 997, DateTimeKind.Utc).AddTicks(6608),
-                            Location = "Tokyo, Japan",
-                            TicketPrice = 450.00m,
-                            Title = "Olympics Opening Ceremony"
+                            Date = new DateTime(2025, 12, 14, 16, 33, 57, 784, DateTimeKind.Utc).AddTicks(2624),
+                            TicketPrice = 160.00m,
+                            Title = "Olympic Track Finals"
                         });
                 });
 
