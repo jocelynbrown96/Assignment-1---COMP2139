@@ -1,9 +1,56 @@
-﻿<style>
+﻿<!--
+=============================================================
+NAVBAR & STYLE SECTION
+=============================================================
+-->
+<style>
+    /* Navbar base background fix for black theme */
+    .navbar.bg-white {
+        background-color: black !important;
+    }
+
+    /* If navbar uses .bg-white alone */
+    .bg-white {
+        background-color: #222 !important; /* dark gray fallback */
+    }
+
+    /* Navbar link styling */
+    .navbar .nav-link {
+        color: white !important;
+        text-align: right;
+    }
+
+    /* Highlights active/hovered navbar links */
+    .navbar .nav-link.active,
+    .navbar .nav-link:hover {
+        color: #ffa500 !important; /* orange for visibility */
+    }
+
+    /* Ensures navbar brand (site title) is white */
+    .navbar-light .navbar-brand {
+        color: #fff !important;
+    }
+
+    /* Remove all bottom margin from navbar and containers to close gaps */
+    .navbar, .container, header, .banner-container {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Banner-specific spacing tweaks */
+    .banner {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    /* Body base styles */
     body {
         background: lightgray;
         margin: 0;
         font-family: 'Segoe UI', Arial, sans-serif;
     }
+
+    /* Header for landing preview */
     .custom-header {
         color: black;
         font-size: 4rem;
@@ -11,6 +58,8 @@
         margin-top: 50px;
         font-family: sans-serif;
     }
+
+    /* Event/Categories/Purchase main tiles */
     .home-tile {
         width: 400px;
         height: 180px;
@@ -30,6 +79,8 @@
     .home-tile:hover {
         box-shadow: 0 4px 32px rgba(0,0,0,0.12);
     }
+
+    /* Banner presentation: Take up full viewport width for effect */
     .banner-container {
         position: relative;
         width: 100vw;
@@ -38,35 +89,86 @@
         margin-left: -50vw;
         margin-right: -50vw;
     }
+
+    /* Main banner title styling for spacing and readability */
     .banner-title {
         position: absolute;
-        top: 35%;
+        top: 35%;                /* centered vertically above search */
         left: 50%;
         transform: translate(-50%, -50%);
-        color: #fff;
+        color: #fff;             /* white text for contrast */
         font-size: 5rem;
         font-weight: bold;
-        text-shadow: 0 2px 14px #1A1A1A;
+        text-shadow: 0 2px 14px #1A1A1A; /* subtle dark shadow */
         margin: 0;
         width: 100%;
         text-align: center;
     }
+
+    /* Search box overlay inside banner */
     .banner-search {
         position: absolute;
-        top: 62%;
+        top: 80%;                /* below the banner title */
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
-        gap: 12px;
+        gap: 12px;               /* space between input and button */
         width: 440px;
         justify-content: center;
     }
+    .banner-container {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    .tiles-section { /* Add a class to your tiles container for targeting */
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    body, main, .container {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    .home-tile {
+        width: 400px;
+        height: 180px;
+        background: dimgrey;
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: #222;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 12px rgba(0,0,0,0.12);
+        font-weight: bold;
+        margin: 0 32px;
+        text-decoration: none;
+        transition: box-shadow 0.25s, transform 0.23s, background 0.20s;
+        border: 1.5px solid #00aeff;
+    }
+
+    .home-tile:hover {
+        background: #00aeff;
+        color: #ffffff;
+        transform: translateY(-2px) scale(1.03);
+    }
+
+
 </style>
 
+<!--
+=============================================================
+BANNER SECTION
+=============================================================
+-->
 <div class="banner-container">
+    <!-- Banner image covering full width -->
     <img src="/HomeBanner.png" alt="Concert crowd"
          style="width: 100vw; height: 320px; object-fit: cover; display: block;">
-    <h1 class="banner-title">Welcome to TicketMe.Net</h1>
+
+    <!-- Large, center title over banner -->
+    <h1 class="banner-title">Welcome to TicketMe</h1>
+
+    <!-- Search box centered under banner title -->
     <form action="/Events/Search" method="get" class="banner-search">
         <input
             type="text"
@@ -81,9 +183,15 @@
     </form>
 </div>
 
+<!--
+=============================================================
+TILE LINKS SECTION
+=============================================================
+-->
 <div style="display:flex; justify-content:center; margin-top:40px;">
     <a href="/Events" class="home-tile">Events</a>
     <a href="/Categories" class="home-tile">Categories</a>
     <a href="/Purchase" class="home-tile">Purchase</a>
 </div>
+
 
