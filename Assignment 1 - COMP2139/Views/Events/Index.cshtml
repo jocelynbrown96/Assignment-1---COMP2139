@@ -1,8 +1,19 @@
 @model IEnumerable<Assignment_1___COMP2139.Models.Event>
 
 
-
-<div class="text-center">
-    <h1 class="display-4">EVENTS</h1>
-    <p>DIS WHERE YOU SEE THE EVENTS </p>
+<div class="container py-4">
+    <div class="row">
+        @foreach (var ev in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@ev.Title</h5>
+                        <p class="card-text">@ev.Date.ToString("MMM dd, yyyy")</p>
+                        <!-- You can add more event info here, like venue, tickets, etc. -->
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
