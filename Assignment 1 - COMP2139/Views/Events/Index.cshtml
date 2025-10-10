@@ -1,19 +1,53 @@
 @model IEnumerable<Assignment_1___COMP2139.Models.Event>
+@{
+    ViewData["Title"] = "Events";
+    var categories = ViewBag.Categories as List<Assignment_1___COMP2139.Models.Category>;
+    var selectedCategory = ViewBag.SelectedCategory as int?;
+}
 
+<h1>Events</h1>
 
-<div class="container py-4">
-    <div class="row">
-        @foreach (var ev in Model)
+<form method="get" asp-action="Index" class="mb-3">
+    <label for="categoryFilter" class="form-label">Filter by Category:</label>
+    <select id="categoryFilter" name="categoryId" class="form-select" onchange="this.form.submit()">
+        <option value="">All Categories</option>
+        @foreach (var category in categories)
         {
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">@ev.Title</h5>
-                        <p class="card-text">@ev.Date.ToString("MMM dd, yyyy")</p>
-                        <!-- You can add more event info here, like venue, tickets, etc. -->
-                    </div>
-                </div>
-            </div>
+            <option value="@category.Id" selected="@(selectedCategory == category.Id)">
+                @category.Name
+            </option>
         }
-    </div>
-</div>
+    </select>
+</form>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Tickets</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var ev in Model)
+    {
+        <tr>
+            <td><a asp-controller="Events" asp-action="Details" asp-route-id="@ev.Id">@ev.Title</a></td>
+            <td>@ev.Date.ToString("MMMM dd, yyyy")</td>
+            <td>@ev.Location</td>
+            <td>@ev.Category?.Name</td>
+            <td>$@ev.TicketPrice</td>
+            <td>@ev.AvailableTickets</td>
+            <td>
+                <a asp-controller="Purchases" asp-action="Create" asp-route-eventId="@ev.Id" class="btn btn-primary btn-sm">
+                    Buy Ticket
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

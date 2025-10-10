@@ -1,8 +1,24 @@
-@model IEnumerable<Assignment_1___COMP2139.Models.Event>
+@model IEnumerable<Assignment_1___COMP2139.Models.Category>
 
+@{
+    ViewData["Title"] = "Categories";
+}
 
+<h1 class="mb-4">Categories</h1>
 
-<div class="text-center">
-    <h1 class="display-4">CATEGORIES</h1>
-    <p>DIS WHERE YOU SEE CATEGORIES </p>
+<div class="row">
+    @foreach (var category in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@category.Name</h5>
+                    <p class="card-text text-muted">@category.Description</p>
+                    <a asp-controller="Categories" asp-action="Details" asp-route-id="@category.Id" class="btn btn-primary mt-auto">
+                        View Events
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
 </div>
