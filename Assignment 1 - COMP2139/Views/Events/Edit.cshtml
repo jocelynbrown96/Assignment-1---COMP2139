@@ -1,0 +1,69 @@
+﻿@model Assignment_1___COMP2139.Models.Event
+@{
+    ViewData["Title"] = "Edit Event";
+    var categories = ViewBag.Categories as List<Assignment_1___COMP2139.Models.Category>;
+}
+
+<style>
+    @@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap');
+    body { background: lightgray; font-family: 'Segoe UI', Arial, sans-serif; }
+    .form-container {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        max-width: 600px;
+        margin: 40px auto;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    h2 { text-align: center; color: #222; margin-bottom: 25px; }
+    label { font-weight: bold; color: #222; }
+    input, select { width: 100%; padding: 10px 12px; border-radius: 8px; border: 1px solid #aaa; margin-bottom: 16px; }
+    button {
+        background: #222; color: white; padding: 12px 24px; border: none; border-radius: 10px;
+        cursor: pointer; font-weight: bold; transition: background-color 0.3s;
+    }
+    button:hover { background: #00aeff; }
+</style>
+
+<div class="form-container">
+    <h2>Edit Event</h2>
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label>Title</label>
+            <input asp-for="Title" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Date</label>
+            <input asp-for="Date" type="datetime-local" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Location</label>
+            <input asp-for="Location" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Ticket Price ($)</label>
+            <input asp-for="TicketPrice" type="number" step="0.01" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Available Tickets</label>
+            <input asp-for="AvailableTickets" type="number" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <select asp-for="CategoryId" asp-items="@(new SelectList(categories, "Id", "Name"))"></select>
+        </div>
+
+        <div style="text-align:center;">
+            <button type="submit">Save Changes</button>
+            <a asp-action="Index" class="btn btn-secondary" style="margin-left:10px;">Cancel</a>
+        </div>
+    </form>
+</div>
