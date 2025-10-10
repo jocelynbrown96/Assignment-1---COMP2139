@@ -1,13 +1,11 @@
-﻿
-<style>
-    /* Navbar base background fix for black theme */
-    .navbar.bg-white {
+﻿<style>
+    .navbar.bg-white { /*Black Nav Bar*/
         background-color: black !important;
     }
 
     /* If navbar uses .bg-white alone */
     .bg-white {
-        background-color: #222 !important; /* dark gray fallback */
+        background-color: #222 !important;
     }
 
     /* Navbar link styling */
@@ -19,7 +17,7 @@
     /* Highlights active/hovered navbar links */
     .navbar .nav-link.active,
     .navbar .nav-link:hover {
-        color: #ffa500 !important; /* orange for visibility */
+        color: #ffa500 !important;
     }
 
     /* Ensures navbar brand (site title) is white */
@@ -76,7 +74,7 @@
         box-shadow: 0 4px 32px rgba(0,0,0,0.12);
     }
 
-    /* Banner presentation: Take up full viewport width for effect */
+    /* Banner */
     .banner-container {
         position: relative;
         width: 100vw;
@@ -95,13 +93,13 @@
         color: #fff;             /* white text for contrast */
         font-size: 5rem;
         font-weight: bold;
-        text-shadow: 0 2px 14px #1A1A1A; /* subtle dark shadow */
+        text-shadow: 0 2px 14px #1A1A1A;
         margin: 0;
         width: 100%;
         text-align: center;
     }
 
-    /* Search box overlay inside banner */
+    /* Search box */
     .banner-search {
         position: absolute;
         top: 80%;                /* below the banner title */
@@ -116,7 +114,7 @@
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
     }
-    .tiles-section { /* Add a class to your tiles container for targeting */
+    .tiles-section {
         margin-top: 0 !important;
         padding-top: 0 !important;
     }
@@ -139,7 +137,7 @@
         margin: 0 32px;
         text-decoration: none;
         transition: box-shadow 0.25s, transform 0.23s, background 0.20s;
-        border: 1.5px solid #00aeff;
+        border: 2px solid #00aeff;
     }
 
     .home-tile:hover {
@@ -151,11 +149,7 @@
 
 </style>
 
-<!--
-=============================================================
-BANNER SECTION
-=============================================================
--->
+<!-- Banner -->
 <div class="banner-container">
     <!-- Banner image covering full width -->
     <img src="/HomeBanner.png" alt="Concert crowd"
@@ -179,11 +173,7 @@ BANNER SECTION
     </form>
 </div>
 
-<!--
-=============================================================
-TILE LINKS SECTION
-=============================================================
--->
+<!-- TILE LINKS SECTION -->
 <div style="display:flex; justify-content:center; margin-top:40px;">
     <a href="/Events" class="home-tile">Events</a>
     <a href="/Categories" class="home-tile">Categories</a>
