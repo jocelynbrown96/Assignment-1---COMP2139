@@ -1,8 +1,89 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<style>
+    body {
+        background: lightgray;
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .custom-header {
+        color: black;
+        font-size: 4rem;
+        text-align: center;
+        margin-top: 50px;
+        font-family: sans-serif;
+    }
+    .home-tile {
+        width: 400px;
+        height: 180px;
+        background: #eee;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: #222;
+        box-shadow: 0 2px 18px rgba(0,0,0,0.09);
+        font-weight: bold;
+        margin: 0 24px;
+        text-decoration: none;
+        transition: box-shadow 0.2s;
+    }
+    .home-tile:hover {
+        box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+    }
+    .banner-container {
+        position: relative;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+    .banner-title {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 5rem;
+        font-weight: bold;
+        text-shadow: 0 2px 14px #1A1A1A;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .banner-search {
+        position: absolute;
+        top: 62%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 12px;
+        width: 440px;
+        justify-content: center;
+    }
+</style>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>DIS WHERE OUR WELCOME SCREEN IS </p>
+<div class="banner-container">
+    <img src="/HomeBanner.png" alt="Concert crowd"
+         style="width: 100vw; height: 320px; object-fit: cover; display: block;">
+    <h1 class="banner-title">Welcome to TicketMe.Net</h1>
+    <form action="/Events/Search" method="get" class="banner-search">
+        <input
+            type="text"
+            name="query"
+            placeholder="Search events..."
+            style="padding: 12px 20px; font-size: 1.1rem; border-radius: 10px; border: 1px solid #aaa; width: 320px;" />
+        <button
+            type="submit"
+            style="padding: 12px 24px; border-radius: 10px; border: none; background: #222; color: #fff; font-size: 1.1rem; font-weight: bold;">
+            Search
+        </button>
+    </form>
 </div>
+
+<div style="display:flex; justify-content:center; margin-top:40px;">
+    <a href="/Events" class="home-tile">Events</a>
+    <a href="/Categories" class="home-tile">Categories</a>
+    <a href="/Purchase" class="home-tile">Purchase</a>
+</div>
+
