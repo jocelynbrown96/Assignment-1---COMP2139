@@ -3,6 +3,7 @@ using System;
 using Assignment_1___COMP2139.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Assignment_1___COMP2139.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251014193132_AddPurchasesAndPurchaseEvents")]
+    partial class AddPurchasesAndPurchaseEvents
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,7 +100,7 @@ namespace Assignment_1___COMP2139.Migrations
                             Id = 1,
                             AvailableTickets = 50,
                             CategoryId = 1,
-                            Date = new DateTime(2025, 10, 24, 19, 58, 40, 928, DateTimeKind.Utc).AddTicks(6556),
+                            Date = new DateTime(2025, 10, 24, 19, 31, 31, 954, DateTimeKind.Utc).AddTicks(9552),
                             Location = "London, UK",
                             TicketPrice = 150.00m,
                             Title = "Adele Live"
@@ -107,7 +110,7 @@ namespace Assignment_1___COMP2139.Migrations
                             Id = 2,
                             AvailableTickets = 100,
                             CategoryId = 1,
-                            Date = new DateTime(2025, 10, 29, 19, 58, 40, 928, DateTimeKind.Utc).AddTicks(6563),
+                            Date = new DateTime(2025, 10, 29, 19, 31, 31, 954, DateTimeKind.Utc).AddTicks(9559),
                             Location = "Toronto, Canada",
                             TicketPrice = 120.00m,
                             Title = "The Weeknd World Tour"
@@ -117,7 +120,7 @@ namespace Assignment_1___COMP2139.Migrations
                             Id = 3,
                             AvailableTickets = 200,
                             CategoryId = 1,
-                            Date = new DateTime(2025, 11, 3, 19, 58, 40, 928, DateTimeKind.Utc).AddTicks(6565),
+                            Date = new DateTime(2025, 11, 3, 19, 31, 31, 954, DateTimeKind.Utc).AddTicks(9561),
                             Location = "Paris, France",
                             TicketPrice = 110.00m,
                             Title = "Coldplay Stadium Show"
@@ -127,7 +130,7 @@ namespace Assignment_1___COMP2139.Migrations
                             Id = 4,
                             AvailableTickets = 75,
                             CategoryId = 1,
-                            Date = new DateTime(2025, 11, 8, 19, 58, 40, 928, DateTimeKind.Utc).AddTicks(6566),
+                            Date = new DateTime(2025, 11, 8, 19, 31, 31, 954, DateTimeKind.Utc).AddTicks(9562),
                             Location = "New York, USA",
                             TicketPrice = 250.00m,
                             Title = "Taylor Swift: The Eras Tour"
@@ -137,7 +140,7 @@ namespace Assignment_1___COMP2139.Migrations
                             Id = 5,
                             AvailableTickets = 150,
                             CategoryId = 1,
-                            Date = new DateTime(2025, 11, 13, 19, 58, 40, 928, DateTimeKind.Utc).AddTicks(6568),
+                            Date = new DateTime(2025, 11, 13, 19, 31, 31, 954, DateTimeKind.Utc).AddTicks(9564),
                             Location = "Seoul, South Korea",
                             TicketPrice = 180.00m,
                             Title = "BTS Reunion"
@@ -147,7 +150,7 @@ namespace Assignment_1___COMP2139.Migrations
                             Id = 6,
                             AvailableTickets = 120,
                             CategoryId = 1,
-                            Date = new DateTime(2025, 11, 18, 19, 58, 40, 928, DateTimeKind.Utc).AddTicks(6569),
+                            Date = new DateTime(2025, 11, 18, 19, 31, 31, 954, DateTimeKind.Utc).AddTicks(9565),
                             Location = "Dublin, Ireland",
                             TicketPrice = 95.00m,
                             Title = "Ed Sheeran Acoustic Night"
@@ -157,7 +160,7 @@ namespace Assignment_1___COMP2139.Migrations
                             Id = 7,
                             AvailableTickets = 200,
                             CategoryId = 2,
-                            Date = new DateTime(2025, 11, 23, 19, 58, 40, 928, DateTimeKind.Utc).AddTicks(6570),
+                            Date = new DateTime(2025, 11, 23, 19, 31, 31, 954, DateTimeKind.Utc).AddTicks(9567),
                             Location = "Berlin, Germany",
                             TicketPrice = 300.00m,
                             Title = "Champions League Final"
@@ -167,7 +170,7 @@ namespace Assignment_1___COMP2139.Migrations
                             Id = 8,
                             AvailableTickets = 180,
                             CategoryId = 2,
-                            Date = new DateTime(2025, 11, 28, 19, 58, 40, 928, DateTimeKind.Utc).AddTicks(6572),
+                            Date = new DateTime(2025, 11, 28, 19, 31, 31, 954, DateTimeKind.Utc).AddTicks(9568),
                             Location = "Los Angeles, USA",
                             TicketPrice = 350.00m,
                             Title = "NBA All-Star Game"
@@ -177,7 +180,7 @@ namespace Assignment_1___COMP2139.Migrations
                             Id = 9,
                             AvailableTickets = 80,
                             CategoryId = 2,
-                            Date = new DateTime(2025, 12, 3, 19, 58, 40, 928, DateTimeKind.Utc).AddTicks(6573),
+                            Date = new DateTime(2025, 12, 3, 19, 31, 31, 954, DateTimeKind.Utc).AddTicks(9570),
                             Location = "London, UK",
                             TicketPrice = 220.00m,
                             Title = "Wimbledon Finals"
@@ -187,7 +190,7 @@ namespace Assignment_1___COMP2139.Migrations
                             Id = 10,
                             AvailableTickets = 300,
                             CategoryId = 2,
-                            Date = new DateTime(2025, 12, 8, 19, 58, 40, 928, DateTimeKind.Utc).AddTicks(6575),
+                            Date = new DateTime(2025, 12, 8, 19, 31, 31, 954, DateTimeKind.Utc).AddTicks(9571),
                             Location = "Las Vegas, USA",
                             TicketPrice = 500.00m,
                             Title = "Super Bowl LX"
@@ -197,7 +200,7 @@ namespace Assignment_1___COMP2139.Migrations
                             Id = 11,
                             AvailableTickets = 250,
                             CategoryId = 2,
-                            Date = new DateTime(2025, 12, 13, 19, 58, 40, 928, DateTimeKind.Utc).AddTicks(6576),
+                            Date = new DateTime(2025, 12, 13, 19, 31, 31, 954, DateTimeKind.Utc).AddTicks(9572),
                             Location = "Monaco",
                             TicketPrice = 400.00m,
                             Title = "Formula 1 Grand Prix"
@@ -207,7 +210,7 @@ namespace Assignment_1___COMP2139.Migrations
                             Id = 12,
                             AvailableTickets = 500,
                             CategoryId = 2,
-                            Date = new DateTime(2025, 12, 18, 19, 58, 40, 928, DateTimeKind.Utc).AddTicks(6577),
+                            Date = new DateTime(2025, 12, 18, 19, 31, 31, 954, DateTimeKind.Utc).AddTicks(9574),
                             Location = "Tokyo, Japan",
                             TicketPrice = 450.00m,
                             Title = "Olympics Opening Ceremony"

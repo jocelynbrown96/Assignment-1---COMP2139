@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Assignment_1___COMP2139.Models
 {
@@ -7,23 +6,28 @@ namespace Assignment_1___COMP2139.Models
     {
         public int EventId { get; set; }
 
-        public string EventTitle { get; set; }
+        [Display(Name = "Event")]
+        public string EventTitle { get; set; } = string.Empty;
 
+        [Display(Name = "Date")]
         public DateTime EventDate { get; set; }
 
-        public int AvailableTickets { get; set; }
-
+        [Display(Name = "Ticket Price")]
         public decimal TicketPrice { get; set; }
 
+        [Display(Name = "Available Tickets")]
+        public int AvailableTickets { get; set; }
+
         [Required]
-        [Range(1, int.MaxValue, ErrorMessage = "Please enter a quantity of at least 1.")]
-        public int Quantity { get; set; } = 1;
+        [Display(Name = "Your Name")]
+        public string GuestName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Your name is required.")]
-        public string GuestName { get; set; }
+        [Required, EmailAddress]
+        [Display(Name = "Email Address")]
+        public string GuestEmail { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Your email is required.")]
-        [EmailAddress(ErrorMessage = "Invalid email address.")]
-        public string GuestEmail { get; set; }
+        [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "Please enter at least 1 ticket")]
+        public int Quantity { get; set; }
     }
 }
