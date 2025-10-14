@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Assignment_1___COMP2139.Views.Purchase;
+namespace Assignment_1___COMP2139.Views.Purchases;
 
 public class Details : PageModel
 {

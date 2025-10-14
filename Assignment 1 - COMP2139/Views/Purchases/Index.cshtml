@@ -1,0 +1,87 @@
+@model IEnumerable<Assignment_1___COMP2139.Models.Purchase>
+
+@{
+    ViewData["Title"] = "All Purchases";
+}
+
+<style>
+    table.table {
+        width: 90%;
+        margin: 0 auto 40px auto;
+        border-collapse: collapse;
+        background: #d3d3d3;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    table.table thead tr {
+        background: #222;
+        color: #ffa500;
+        font-weight: bold;
+    }
+
+    table.table th,
+    table.table td {
+        padding: 12px 20px;
+        text-align: left;
+        border-bottom: 1px solid #bbb;
+        color: #222;
+    }
+
+    table.table tbody tr:hover {
+        background: #00aeff;
+        color: white;
+    }
+
+    .btn-primary {
+        background-color: #222;
+        border: none;
+        font-weight: bold;
+        color: white;
+        padding: 6px 14px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #00aeff;
+        color: white;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 20px;
+        color: #222;
+    }
+</style>
+
+<h2>All Purchases</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Guest Name</th>
+        <th>Email</th>
+        <th>Purchase Date</th>
+        <th>Total Cost</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var purchase in Model)
+    {
+        <tr>
+            <td>@purchase.GuestName</td>
+            <td>@purchase.GuestEmail</td>
+            <td>@purchase.PurchaseDate.ToString("MMMM dd, yyyy HH:mm")</td>
+            <td>$@purchase.TotalCost</td>
+            <td>
+                <a asp-controller="Purchases" asp-action="Details" asp-route-id="@purchase.Id" class="btn btn-primary btn-sm">
+                    View
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

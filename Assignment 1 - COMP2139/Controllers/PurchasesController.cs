@@ -5,16 +5,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Assignment_1___COMP2139.Controllers
 {
-    public class PurchaseController : Controller
+    public class PurchasesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public PurchaseController(ApplicationDbContext context)
+        public PurchasesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Purchase/Create?eventId=#
+        // GET: Purchases/Create?eventId=#
         public async Task<IActionResult> Create(int? eventId)
         {
             if (eventId == null)
@@ -29,18 +29,22 @@ namespace Assignment_1___COMP2139.Controllers
                 EventId = ev.Id,
                 EventTitle = ev.Title,
                 EventDate = ev.Date,
+                TicketPrice = ev.TicketPrice,
                 AvailableTickets = ev.AvailableTickets,
-                TicketPrice = ev.TicketPrice
+                Quantity = 1
             };
 
             return View(model);
         }
 
-        // POST: Purchase/Create
+        // POST: Purchases/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(PurchaseViewModel model)
         {
+            if (!ModelState.IsValid)
+                return View(model);
+
             var ev = await _context.Events.FindAsync(model.EventId);
             if (ev == null)
             {
@@ -48,17 +52,9 @@ namespace Assignment_1___COMP2139.Controllers
                 return View(model);
             }
 
-            if (!ModelState.IsValid || model.Quantity > ev.AvailableTickets)
+            if (model.Quantity < 1 || model.Quantity > ev.AvailableTickets)
             {
-                if (model.Quantity > ev.AvailableTickets)
-                    ModelState.AddModelError("", "Not enough tickets available.");
-
-                // Keep event info in the model for redisplay
-                model.EventTitle = ev.Title;
-                model.EventDate = ev.Date;
-                model.TicketPrice = ev.TicketPrice;
-                model.AvailableTickets = ev.AvailableTickets;
-
+                ModelState.AddModelError("", $"Please enter a quantity between 1 and {ev.AvailableTickets}.");
                 return View(model);
             }
 
@@ -85,18 +81,31 @@ namespace Assignment_1___COMP2139.Controllers
             return RedirectToAction(nameof(Details), new { id = purchase.Id });
         }
 
-        // GET: Purchase/Details/5
+        // GET: Purchases/Details/5
         public async Task<IActionResult> Details(int id)
         {
             var purchase = await _context.Purchases
                 .Include(p => p.PurchaseEvents)
                     .ThenInclude(pe => pe.Event)
+                        .ThenInclude(e => e.Category)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             if (purchase == null)
                 return NotFound();
 
             return View(purchase);
+        }
+
+        // GET: Purchases
+        public async Task<IActionResult> Index()
+        {
+            var purchases = await _context.Purchases
+                .Include(p => p.PurchaseEvents)
+                    .ThenInclude(pe => pe.Event)
+                        .ThenInclude(e => e.Category)
+                .ToListAsync();
+
+            return View(purchases);
         }
     }
 }
