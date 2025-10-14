@@ -1,0 +1,52 @@
+﻿@model Assignment_1___COMP2139.Models.PurchaseViewModel
+
+@{
+    ViewData["Title"] = "Purchase Tickets";
+}
+
+<h2>Purchase Tickets</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Event:</label>
+        <span>@Model.EventTitle</span>
+    </div>
+    <div>
+        <label>Date:</label>
+        <span>@Model.EventDate.ToString("MMMM dd, yyyy")</span>
+    </div>
+    <div>
+        <label>Ticket Price:</label>
+        <span>$@Model.TicketPrice</span>
+    </div>
+    <div>
+        <label>Available Tickets:</label>
+        <span>@Model.AvailableTickets</span>
+    </div>
+
+    <input type="hidden" asp-for="EventId" />
+
+    <div>
+        <label asp-for="GuestName"></label>
+        <input asp-for="GuestName" />
+        <span asp-validation-for="GuestName"></span>
+    </div>
+
+    <div>
+        <label asp-for="GuestEmail"></label>
+        <input asp-for="GuestEmail" />
+        <span asp-validation-for="GuestEmail"></span>
+    </div>
+
+    <div>
+        <label asp-for="Quantity"></label>
+        <input asp-for="Quantity" type="number" min="1" max="@Model.AvailableTickets" />
+        <span asp-validation-for="Quantity"></span>
+    </div>
+
+    <button type="submit">Complete Purchase</button>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
