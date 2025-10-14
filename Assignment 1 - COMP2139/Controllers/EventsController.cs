@@ -65,7 +65,7 @@ namespace Assignment_1___COMP2139.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Fix: Convert Date to UTC
+                // Ensure DateTime is UTC for PostgreSQL
                 newEvent.Date = DateTime.SpecifyKind(newEvent.Date, DateTimeKind.Utc);
 
                 _context.Events.Add(newEvent);
@@ -100,7 +100,7 @@ namespace Assignment_1___COMP2139.Controllers
             {
                 try
                 {
-                    // Fix: Convert Date to UTC
+                    // Ensure DateTime is UTC
                     updatedEvent.Date = DateTime.SpecifyKind(updatedEvent.Date, DateTimeKind.Utc);
 
                     _context.Update(updatedEvent);

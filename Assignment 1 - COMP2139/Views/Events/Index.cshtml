@@ -220,6 +220,7 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
     .btn-create:hover {
         background-color: #00aeff;
     }
+
 </style>
 
 <!-- Banner  -->
@@ -278,7 +279,11 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
             <td class="action-buttons">
                 <a asp-controller="Purchases" asp-action="Create" asp-route-eventId="@ev.Id" class="btn btn-primary btn-sm">Buy</a>
                 <a asp-action="Edit" asp-route-id="@ev.Id" class="btn btn-warning btn-sm">Edit</a>
-                <a asp-action="Delete" asp-route-id="@ev.Id" class="btn btn-danger btn-sm">Delete</a>
+
+                <form asp-action="Delete" asp-route-id="@ev.Id" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this event?');">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
             </td>
         </tr>
     }
