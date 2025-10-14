@@ -14,7 +14,7 @@ namespace Assignment_1___COMP2139.Controllers
             _context = context;
         }
 
-        // ✅ Index (with search + category filter)
+        // Index (search + category filter)
         public async Task<IActionResult> Index(string searchString, int? categoryId)
         {
             var categories = await _context.Categories.ToListAsync();
@@ -38,7 +38,7 @@ namespace Assignment_1___COMP2139.Controllers
             return View(await events.ToListAsync());
         }
 
-        // ✅ Details
+        // Details
         public async Task<IActionResult> Details(int id)
         {
             var eventItem = await _context.Events
@@ -51,23 +51,21 @@ namespace Assignment_1___COMP2139.Controllers
             return View(eventItem);
         }
 
-        // ✅ Create (GET)
+        // Create (GET)
         public IActionResult Create()
         {
             ViewBag.Categories = _context.Categories.ToList();
             return View();
         }
 
-        // ✅ Create (POST)
+        // Create (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Event newEvent)
         {
             if (ModelState.IsValid)
             {
-                // Ensure DateTime is UTC for PostgreSQL
                 newEvent.Date = DateTime.SpecifyKind(newEvent.Date, DateTimeKind.Utc);
-
                 _context.Events.Add(newEvent);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -77,7 +75,7 @@ namespace Assignment_1___COMP2139.Controllers
             return View(newEvent);
         }
 
-        // ✅ Edit (GET)
+        // Edit (GET)
         public async Task<IActionResult> Edit(int id)
         {
             var eventItem = await _context.Events.FindAsync(id);
@@ -88,7 +86,7 @@ namespace Assignment_1___COMP2139.Controllers
             return View(eventItem);
         }
 
-        // ✅ Edit (POST)
+        // Edit (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Event updatedEvent)
@@ -100,7 +98,6 @@ namespace Assignment_1___COMP2139.Controllers
             {
                 try
                 {
-                    // Ensure DateTime is UTC
                     updatedEvent.Date = DateTime.SpecifyKind(updatedEvent.Date, DateTimeKind.Utc);
 
                     _context.Update(updatedEvent);
@@ -120,7 +117,7 @@ namespace Assignment_1___COMP2139.Controllers
             return View(updatedEvent);
         }
 
-        // ✅ Delete (GET)
+        // Delete (GET)
         public async Task<IActionResult> Delete(int id)
         {
             var eventItem = await _context.Events
@@ -133,7 +130,7 @@ namespace Assignment_1___COMP2139.Controllers
             return View(eventItem);
         }
 
-        // ✅ Delete (POST)
+        // Delete (POST)
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -148,7 +145,3 @@ namespace Assignment_1___COMP2139.Controllers
         }
     }
 }
-
-
-
-
