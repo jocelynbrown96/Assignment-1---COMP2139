@@ -7,7 +7,7 @@ public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<Applicati
     public ApplicationDbContext CreateDbContext(string[] args)
     {
         var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=VirtualEventDB;Username=postgres;Password=Hello!project1");
+        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=VirtualEventDB;Username=postgres;Password=mjamesh");
 
         return new ApplicationDbContext(optionsBuilder.Options);
     }
