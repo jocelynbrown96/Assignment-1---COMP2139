@@ -1,22 +1,28 @@
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
-namespace Assignment_1___COMP2139.Models;
-
-public class Purchase
+namespace Assignment_1___COMP2139.Models
 {
-    public int Id { get; set; }
+    public class Purchase
+    {
+        public int Id { get; set; }
 
-    [Required]
-    public DateTime PurchaseDate { get; set; }
+        [Required]
+        public string GuestName { get; set; }
 
-    [Range(0, double.MaxValue)]
-    public decimal TotalCost { get; set; }
+        [Required, EmailAddress]
+        public string GuestEmail { get; set; }
 
-    [Required]
-    public string GuestName { get; set; } = string.Empty;
+        public DateTime PurchaseDate { get; set; } = DateTime.UtcNow;
 
-    [Required, EmailAddress]
-    public string GuestEmail { get; set; } = string.Empty;
+        // Navigation property for many-to-many
+        public ICollection<PurchaseEvent> PurchaseEvents { get; set; } = new List<PurchaseEvent>();
 
-    public ICollection<PurchaseEvent> PurchaseEvents { get; set; } = new List<PurchaseEvent>();
+        // Computed property for total cost
+        [NotMapped]
+        public decimal TotalCost => PurchaseEvents?.Sum(pe => (pe.Event?.TicketPrice ?? 0) * pe.Quantity) ?? 0;
+    }
 }

@@ -12,40 +12,9 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
         font-family: 'Segoe UI', Arial, sans-serif;
     }
 
-    .navbar.bg-white {
-        background-color: black !important;
-    }
-
-    .bg-white {
-        background-color: #222 !important;
-    }
-
-    .navbar .nav-link {
-        color: white !important;
-        text-align: right;
-    }
-
-    .navbar .nav-link.active,
-    .navbar .nav-link:hover {
-        color: #ffa500 !important;
-    }
-
-    .navbar-light .navbar-brand {
-        color: #fff !important;
-    }
-
-    .navbar, .container, header, .banner-container {
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
-    }
-
     .banner-container {
         position: relative;
         width: 100vw;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
         margin-bottom: 40px;
     }
 
@@ -94,7 +63,63 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
     }
 
     .banner-search button:hover {
-        background: #444;
+        background-color: #444;
+    }
+
+    .filter-create-container {
+        width: 90%;
+        margin: 0 auto 20px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .btn-create, .btn-action {
+        padding: 8px 16px;
+        border-radius: 10px;
+        font-weight: bold;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        min-width: 70px;
+        text-align: center;
+    }
+
+    .btn-create {
+        background-color: #222;
+        color: white !important;
+    }
+
+    .btn-create:hover {
+        background-color: #00aeff;
+    }
+
+    .btn-action {
+        color: white !important;
+    }
+
+    .btn-buy {
+        background-color: #222;
+    }
+
+    .btn-buy:hover {
+        background-color: #00aeff;
+    }
+
+    .btn-edit {
+        background-color: #ffa500;
+    }
+
+    .btn-edit:hover {
+        background-color: #ffb733;
+    }
+
+    .btn-delete {
+        background-color: #dc3545;
+    }
+
+    .btn-delete:hover {
+        background-color: #e65a6a;
     }
 
     table.table {
@@ -113,8 +138,7 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
         font-weight: bold;
     }
 
-    table.table th,
-    table.table td {
+    table.table th, table.table td {
         padding: 12px 20px;
         text-align: left;
         border-bottom: 1px solid #bbb;
@@ -127,103 +151,13 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
         cursor: pointer;
     }
 
-    a.btn-primary {
-        background-color: #222 !important;
-        border: none !important;
-        font-weight: bold;
-        color: white !important;
-        padding: 6px 14px;
-        border-radius: 10px;
-        transition: background-color 0.3s ease;
-    }
-
-    a.btn-primary:hover {
-        background-color: #00aeff !important;
-    }
-
-    form.filter-form {
-        width: 320px;
-        margin: 0 auto 20px auto;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    form.filter-form label {
-        font-weight: bold;
-        margin-bottom: 8px;
-        color: #222;
-    }
-
-    select.form-select {
-        width: 100%;
-        padding: 12px 20px;
-        border-radius: 10px;
-        border: 1px solid #aaa;
-        font-size: 1.1rem;
-    }
-
     .action-buttons {
         display: flex;
         gap: 6px;
     }
-
-    .btn-warning, .btn-danger {
-        border-radius: 10px;
-        font-weight: bold;
-        color: white !important;
-        padding: 6px 12px;
-    }
-
-    .btn-warning {
-        background-color: #ffa500;
-        border: none;
-    }
-
-    .btn-warning:hover {
-        background-color: #ffb733;
-    }
-
-    .btn-danger {
-        background-color: #dc3545;
-        border: none;
-    }
-
-    .btn-danger:hover {
-        background-color: #e65a6a;
-    }
-
-    .add-event-container {
-        width: 90%;
-        margin: 0 auto 20px auto;
-        text-align: right;
-    }
-
-    .filter-create-container {
-        width: 90%;
-        margin: 0 auto 20px auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .btn-create {
-        background-color: #222;
-        color: white !important;
-        padding: 12px 20px;
-        border-radius: 10px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn-create:hover {
-        background-color: #00aeff;
-    }
-
 </style>
 
-<!-- Banner  -->
+<!-- Banner -->
 <div class="banner-container">
     <img src="/HomeBanner.png" alt="Concert crowd" style="width: 100vw; height: 320px; object-fit: cover; display: block;">
     <h1 class="banner-title">Events</h1>
@@ -243,49 +177,56 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
             <option value="">All Categories</option>
             @foreach (var category in categories)
             {
-                <option value="@category.Id" selected="@(selectedCategory == category.Id)">
-                    @category.Name
-                </option>
+            <option value="@category.Id" selected="@(selectedCategory == category.Id)">
+                @category.Name
+            </option>
             }
         </select>
     </form>
 
-    <a asp-action="Create" class="btn btn-create">+ Add New Event</a>
+    <a asp-action="Create" class="btn-create">+ Add New Event</a>
 </div>
 
 <!-- Events Table -->
 <table class="table table-striped">
     <thead>
-        <tr>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Tickets</th>
-            <th>Actions</th>
-        </tr>
+    <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Tickets</th>
+        <th>Actions</th>
+    </tr>
     </thead>
     <tbody>
     @foreach (var ev in Model)
     {
-        <tr>
-            <td><a asp-controller="Events" asp-action="Details" asp-route-id="@ev.Id">@ev.Title</a></td>
-            <td>@ev.Date.ToString("MMMM dd, yyyy")</td>
-            <td>@ev.Location</td>
-            <td>@ev.Category?.Name</td>
-            <td>$@ev.TicketPrice</td>
-            <td>@ev.AvailableTickets</td>
-            <td class="action-buttons">
-                <a asp-controller="Purchases" asp-action="Create" asp-route-eventId="@ev.Id" class="btn btn-primary btn-sm">Buy</a>
-                <a asp-action="Edit" asp-route-id="@ev.Id" class="btn btn-warning btn-sm">Edit</a>
+    <tr>
+        <td><a asp-controller="Events" asp-action="Details" asp-route-id="@ev.Id">@ev.Title</a></td>
+        <td>@ev.Date.ToString("MMMM dd, yyyy")</td>
+        <td>@ev.Location</td>
+        <td>@ev.Category?.Name</td>
+        <td>$@ev.TicketPrice</td>
+        <td>@ev.AvailableTickets</td>
+        <td class="action-buttons">
+            <!-- Buy button -->
+            <form asp-controller="Purchase" asp-action="Create" method="get" style="display:inline;">
+                <input type="hidden" name="eventId" value="@ev.Id" />
+                <button type="submit" class="btn-action btn-buy btn-sm">Buy</button>
+            </form>
 
-                <form asp-action="Delete" asp-route-id="@ev.Id" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this event?');">
-                    @Html.AntiForgeryToken()
-                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                </form>
-            </td>
-        </tr>
+            <!-- Edit button -->
+            <a asp-action="Edit" asp-route-id="@ev.Id" class="btn-action btn-edit btn-sm">Edit</a>
+
+            <!-- Delete button -->
+            <form asp-action="Delete" asp-route-id="@ev.Id" method="post" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this event?');">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn-action btn-delete btn-sm">Delete</button>
+            </form>
+        </td>
+    </tr>
     }
     </tbody>
 </table>
