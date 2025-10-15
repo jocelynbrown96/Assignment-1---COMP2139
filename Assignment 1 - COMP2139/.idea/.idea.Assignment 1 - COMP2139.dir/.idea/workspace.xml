@@ -10,8 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e97335d9-e0d0-42a5-b45b-4322e1d58e58" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assignment 1 - COMP2139.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assignment 1 - COMP2139.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/EventsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/EventsController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Events/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Events/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Purchases/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Purchases/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Purchases/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Purchases/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Purchases/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Purchases/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Assignment 1 - COMP2139.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Assignment 1 - COMP2139.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/Assignment 1 - COMP2139.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/Assignment 1 - COMP2139.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/Assignment 1 - COMP2139.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/Assignment 1 - COMP2139.AssemblyInfo.cs" afterDir="false" />
@@ -216,7 +218,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760495621830</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="finished event page">
+      <option name="closed" value="true" />
+      <created>1760499945796</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1760499945796</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +245,8 @@
     <MESSAGE value="hi" />
     <MESSAGE value="home Page" />
     <MESSAGE value="events" />
-    <option name="LAST_COMMIT_MESSAGE" value="events" />
+    <MESSAGE value="finished event page" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished event page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -5,10 +5,43 @@
 }
 
 <style>
+
+
+    .navbar.bg-white { /*Black Nav Bar*/
+        background-color: black !important;
+    }
+
+    /* If navbar uses .bg-white alone */
+    .bg-white {
+        background-color: #222 !important;
+    }
+
+    /* Navbar link styling */
+    .navbar .nav-link {
+        color: white !important;
+        text-align: right;
+    }
+
+    /* Highlights active/hovered navbar links */
+    .navbar .nav-link.active,
+    .navbar .nav-link:hover {
+        color: #ffa500 !important;
+    }
+    /* Body base styles */
+    body {
+        background-color: lightgrey;
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    /* Ensures navbar brand (site title) is white */
+    .navbar-light .navbar-brand {
+        color: #fff !important;
+    }
     .details-container {
         width: 90%;
         margin: 20px auto;
-        background: #d3d3d3;
+        background: #ffffff;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
@@ -30,6 +63,7 @@
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
+        border: 1px solid #ddd;
     }
 
     table.table th,

@@ -78,6 +78,9 @@
         margin: 0 auto 20px auto;
         display: flex;
         align-items: center;
+        border: 2px solid #00aeff;
+        border-radius: 10px;
+        background: grey;
     }
     .btn-create {
         padding: 8px 16px;
@@ -116,9 +119,11 @@
         gap: 12px;
     }
     table.table {
+        border: 2px solid #00aeff;
         width: 100%;
         margin: 0 auto 40px auto;
-        border-collapse: collapse;
+        border-collapse: separate;    /* <-- critical */
+        border-spacing: 0;            /* <-- avoids unwanted gaps */
         background: #d3d3d3;
         border-radius: 10px;
         overflow: hidden;

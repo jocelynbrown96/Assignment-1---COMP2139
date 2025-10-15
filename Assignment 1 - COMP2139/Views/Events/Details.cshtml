@@ -4,6 +4,39 @@
     ViewData["Title"] = @Model.Title;
 }
 
+<style>
+
+
+    .navbar.bg-white { /*Black Nav Bar*/
+        background-color: black !important;
+    }
+
+    /* If navbar uses .bg-white alone */
+    .bg-white {
+        background-color: #222 !important;
+    }
+
+    /* Navbar link styling */
+    .navbar .nav-link {
+        color: white !important;
+        text-align: right;
+    }
+
+    /* Highlights active/hovered navbar links */
+    .navbar .nav-link.active,
+    .navbar .nav-link:hover {
+        color: #ffa500 !important;
+    }
+    /* Body base styles */
+    body {
+        background-color: lightgrey;
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+
+    </style>
+
 <div class="container mt-4">
     <div class="card shadow-sm border-0">
         <div class="card-body">

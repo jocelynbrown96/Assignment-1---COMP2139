@@ -5,9 +5,77 @@
 }
 
 <style>
+
+    .navbar.bg-white { /*Black Nav Bar*/
+        background-color: black !important;
+    }
+
+    /* If navbar uses .bg-white alone */
+    .bg-white {
+        background-color: #222 !important;
+    }
+
+    /* Navbar link styling */
+    .navbar .nav-link {
+        color: white !important;
+        text-align: right;
+    }
+
+    /* Highlights active/hovered navbar links */
+    .navbar .nav-link.active,
+    .navbar .nav-link:hover {
+        color: #ffa500 !important;
+    }
+    /* Body base styles */
+    body {
+        background-color: lightgrey;
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    /* Ensures navbar brand (site title) is white */
+    .navbar-light .navbar-brand {
+        color: #fff !important;
+    }
+
+    /* Remove all bottom margin from navbar and containers to close gaps */
+    .navbar, .container, header, .banner-container {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    /* Banner container covers full width */
+    .banner-container {
+        position: relative;
+        width: 100vw;
+        left: 50%;
+        margin-left: -50vw;
+    }
+    /* Banner background image */
+    .banner-container img {
+        width: 100vw;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+    }
+    /* Main title styling */
+    .banner-title {
+        position: absolute;
+        text-align: center;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 6rem;
+        font-weight: bold;
+        text-shadow: 0 2px 14px #1A1A1A;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 2;
+    }
     table.table {
-        width: 90%;
-        margin: 0 auto 40px auto;
+        width: 100%;
+        margin: 20px auto 40px auto;
         border-collapse: collapse;
         background: #d3d3d3;
         border-radius: 10px;
@@ -55,8 +123,12 @@
         color: #222;
     }
 </style>
+<div class="banner-container">
+<img src="/HomeBanner.png" alt="Concert crowd">
 
-<h2>All Purchases</h2>
+<!-- Banner title -->
+<h1 class="banner-title">Purchases</h1>
+</div>
 
 <table class="table table-striped">
     <thead>
