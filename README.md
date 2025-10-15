@@ -6,16 +6,6 @@ Welcome to **TicketMe**, a virtual event ticketing system built with **ASP.NET C
 
 ---
 
-**## Table of Contents**
-
-- [Project Overview](#project-overview)
-- [Prerequisites](#prerequisites)
-- [Database Configuration](#database-configuration)
-- [Running the Application](#running-the-application)
-- [Notes](#notes)
-
----
-
 **## Project Overview**
 
 TicketMe provides the following features:
@@ -59,7 +49,7 @@ How to configure your database:
 
 ---
 
-**## Running the Application**
+## Running the Application
 
 -Open the project in JetBrains Rider.
 -Ensure the connection string in appsettings.json is correctly set.
@@ -71,7 +61,7 @@ dotnet ef database update
 -Use the terminal: dotnet run
 -Open a browser and navigate to https://localhost:5001 (or the port shown in the console) to view the app.
 
-**## Notes**
+## Notes
 
 -Default landing page: Home.
 -Admin features: Create, edit, and delete events.
@@ -82,3 +72,4 @@ dotnet ef database update
 -Make sure PostgreSQL is running before starting the application.
 -Use environment variables for sensitive information like database passwords to keep credentials secure.
 -pgAdmin 4 can be used to inspect and manage your database.
+
