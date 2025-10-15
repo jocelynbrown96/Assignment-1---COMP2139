@@ -37,8 +37,8 @@ TicketMe uses **PostgreSQL** for its database. The connection string is stored i
 "ConnectionStrings": {
   "DefaultConnection": "Host=localhost;Port=5432;Database=TicketMeDB;Username=YOUR_DB_USERNAME;Password=YOUR_DB_PASSWORD"
 }
-How to configure your database:
 
+How to configure your database:
 -Open pgAdmin 4 and ensure your PostgreSQL server is running.
 -Create a new database (e.g., TicketMeDB) if it does not exist.
 -Open appsettings.json in Rider.
@@ -72,4 +72,5 @@ dotnet ef database update
 -Make sure PostgreSQL is running before starting the application.
 -Use environment variables for sensitive information like database passwords to keep credentials secure.
 -pgAdmin 4 can be used to inspect and manage your database.
+
 
