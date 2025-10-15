@@ -14,8 +14,8 @@ namespace Assignment_1___COMP2139.Controllers
             _context = context;
         }
 
-        // Index (search + category filter)
-        public async Task<IActionResult> Index(string searchString, int? categoryId)
+        // Index (search + category filter + price sorting)
+        public async Task<IActionResult> Index(string searchString, int? categoryId, string sortOrder)
         {
             var categories = await _context.Categories.ToListAsync();
             ViewBag.Categories = categories;
@@ -33,6 +33,19 @@ namespace Assignment_1___COMP2139.Controllers
             if (categoryId.HasValue)
             {
                 events = events.Where(e => e.CategoryId == categoryId.Value);
+            }
+
+            // Price filter logic
+            switch (sortOrder)
+            {
+                case "priceAsc":
+                    events = events.OrderBy(e => e.TicketPrice); // Use your actual price property name
+                    break;
+                case "priceDesc":
+                    events = events.OrderByDescending(e => e.TicketPrice);
+                    break;
+                default:
+                    break;
             }
 
             return View(await events.ToListAsync());
@@ -143,5 +156,6 @@ namespace Assignment_1___COMP2139.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
     }
 }
