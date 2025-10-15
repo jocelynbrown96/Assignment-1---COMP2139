@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mackenziehodgson/Desktop/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/Assignment 1 - COMP2139.csproj": {}
+    "C:\\Users\\kawai\\OneDrive\\Desktop\\F25\\COMP2139\\Assignment 1 - COMP2139\\Assignment 1 - COMP2139\\Assignment 1 - COMP2139.csproj": {}
   },
   "projects": {
-    "/Users/mackenziehodgson/Desktop/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/Assignment 1 - COMP2139.csproj": {
+    "C:\\Users\\kawai\\OneDrive\\Desktop\\F25\\COMP2139\\Assignment 1 - COMP2139\\Assignment 1 - COMP2139\\Assignment 1 - COMP2139.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mackenziehodgson/Desktop/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/Assignment 1 - COMP2139.csproj",
+        "projectUniqueName": "C:\\Users\\kawai\\OneDrive\\Desktop\\F25\\COMP2139\\Assignment 1 - COMP2139\\Assignment 1 - COMP2139\\Assignment 1 - COMP2139.csproj",
         "projectName": "Assignment 1 - COMP2139",
-        "projectPath": "/Users/mackenziehodgson/Desktop/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/Assignment 1 - COMP2139.csproj",
-        "packagesPath": "/Users/mackenziehodgson/.nuget/packages/",
-        "outputPath": "/Users/mackenziehodgson/Desktop/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/obj/",
+        "projectPath": "C:\\Users\\kawai\\OneDrive\\Desktop\\F25\\COMP2139\\Assignment 1 - COMP2139\\Assignment 1 - COMP2139\\Assignment 1 - COMP2139.csproj",
+        "packagesPath": "C:\\Users\\kawai\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kawai\\OneDrive\\Desktop\\F25\\COMP2139\\Assignment 1 - COMP2139\\Assignment 1 - COMP2139\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/mackenziehodgson/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\kawai\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -74,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

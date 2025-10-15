@@ -147,7 +147,7 @@
             <td>@purchase.GuestName</td>
             <td>@purchase.GuestEmail</td>
             <td>@purchase.PurchaseDate.ToString("MMMM dd, yyyy HH:mm")</td>
-            <td>$@purchase.TotalCost</td>
+            <td>$@purchase.TotalCost.ToString("F2")</td>
             <td>
                 <a asp-controller="Purchases" asp-action="Details" asp-route-id="@purchase.Id" class="btn btn-primary btn-sm">
                     View

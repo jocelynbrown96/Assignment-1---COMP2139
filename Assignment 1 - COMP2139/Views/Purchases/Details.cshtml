@@ -108,7 +108,7 @@
         <p><strong>Guest Name:</strong> @Model.GuestName</p>
         <p><strong>Email:</strong> @Model.GuestEmail</p>
         <p><strong>Purchase Date:</strong> @Model.PurchaseDate.ToString("MMMM dd, yyyy HH:mm")</p>
-        <p><strong>Total Cost:</strong> $@Model.TotalCost</p>
+        <p><strong>Total Cost:</strong> $@Model.TotalCost.ToString("F2")</p>
     </div>
 
     <h3>Tickets:</h3>
@@ -128,7 +128,7 @@
                     <td>@pe.Event.Title</td>
                     <td>@pe.Event.Date.ToString("MMMM dd, yyyy")</td>
                     <td>@pe.Quantity</td>
-                    <td>$@(pe.Quantity * pe.Event.TicketPrice)</td>
+                    <td>$@((pe.Quantity * pe.Event.TicketPrice).ToString("F2"))</td>
                 </tr>
             }
         </tbody>

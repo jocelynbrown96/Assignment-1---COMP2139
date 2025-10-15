@@ -46,7 +46,7 @@
                 <span class="me-3">🗓️ <strong>Date:</strong> @Model.Date.ToString("MMMM dd, yyyy")</span><br />
                 <span class="me-3">📍 <strong>Location:</strong> @Model.Location</span><br />
                 <span class="me-3">📂 <strong>Category:</strong> @Model.Category?.Name</span><br />
-                <span class="me-3">💵 <strong>Price:</strong> $@Model.TicketPrice</span><br />
+                <span class="me-3">💵 <strong>Price:</strong> $@Model.TicketPrice.ToString("F2")</span><br />
                 <span class="me-3">🎫 <strong>Available Tickets:</strong> @Model.AvailableTickets</span>
             </p>
        

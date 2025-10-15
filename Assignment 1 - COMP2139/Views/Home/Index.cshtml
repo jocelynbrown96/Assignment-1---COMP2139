@@ -199,11 +199,10 @@
 
     <!-- Three small navigation tiles placed right below search bar -->
     <div class="banner-nav-tiles">
-        <a href="/Purchase" class="banner-tile">About</a>
-        <a href="/Events" class="banner-tile">Events</a>
-        <a href="/Categories" class="banner-tile">Categories</a>
-        <a href="/Purchases" class="banner-tile">Purchases</a>
-
+        <a asp-controller="Home" asp-action="About" class="banner-tile">About</a>
+        <a asp-controller="Events" asp-action="Index" class="banner-tile">Events</a>
+        <a asp-controller="Categories" asp-action="Index" class="banner-tile">Categories</a>
+        <a asp-controller="Purchases" asp-action="Index" class="banner-tile">Purchases</a>
     </div>
 </div>
 

@@ -285,8 +285,16 @@
                 <td>@ev.Date.ToString("MMMM dd, yyyy")</td>
                 <td>@ev.Location</td>
                 <td>@ev.Category?.Name</td>
-                <td>$@ev.TicketPrice</td>
-                <td>@ev.AvailableTickets</td>
+                <td>$@ev.TicketPrice.ToString("F2")</td>
+                <td style="white-space: nowrap;">
+                    <span>
+                        @ev.AvailableTickets
+                        @if (ev.AvailableTickets < 5)
+                        {
+                            <span style="color:red; font-weight:bold; margin-left:6px;">⚠ Low stock!</span>
+                        }
+                    </span>
+                </td>
                 <td class="action-buttons">
                     <!-- Buy button -->
                     <form asp-controller="Purchases" asp-action="Create" method="get" style="display:inline;">
