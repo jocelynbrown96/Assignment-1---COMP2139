@@ -6,6 +6,43 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
 }
 
 <style>
+    .navbar.bg-white { /*Black Nav Bar*/
+        background-color: black !important;
+    }
+
+    /* If navbar uses .bg-white alone */
+    .bg-white {
+        background-color: #222 !important;
+    }
+
+    /* Navbar link styling */
+    .navbar .nav-link {
+        color: white !important;
+        text-align: right;
+    }
+
+    /* Highlights active/hovered navbar links */
+    .navbar .nav-link.active,
+    .navbar .nav-link:hover {
+        color: #ffa500 !important;
+    }
+    /* Body base styles */
+    body {
+        background-color: lightgrey;
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    /* Ensures navbar brand (site title) is white */
+    .navbar-light .navbar-brand {
+        color: #fff !important;
+    }
+
+    /* Remove all bottom margin from navbar and containers to close gaps */
+    .navbar, .container, header, .banner-container {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
     body {
         background: lightgray;
         margin: 0;
@@ -16,7 +53,8 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
     .banner-container {
         position: relative;
         width: 100vw;
-        margin-bottom: 40px;
+        left: 50%;
+        margin-left: -50vw;
     }
 
     .banner-title {
@@ -25,7 +63,7 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
         left: 50%;
         transform: translate(-50%, -50%);
         color: #fff;
-        font-size: 5rem;
+        font-size: 6rem;
         font-weight: bold;
         text-shadow: 0 2px 14px #1A1A1A;
         margin: 0;
@@ -72,7 +110,7 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
         width: 90%;
         margin: 0 auto 20px auto;
         display: flex;
-        justify-content: space-between;
+
         align-items: center;
     }
 
@@ -112,10 +150,41 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
 
     .btn-edit {
         background-color: #ffa500;
+
     }
 
     .btn-edit:hover {
         background-color: #ffb733;
+    }
+
+    .btn-edit {
+        padding: 14px 32px;         /* Ensure all buttons have equal padding */
+        font-size: 1.11rem;         /* Make sure font size matches */
+        border-radius: 10px;        /* Uniform rounding */
+        font-weight: bold;
+        width: 100px;               /* Fixed width keeps all the same size */
+        display: inline-block;
+        text-align: center;
+    }
+
+    .btn-delete {
+        padding: 14px 32px;         /* Ensure all buttons have equal padding */
+        font-size: 1.11rem;         /* Make sure font size matches */
+        border-radius: 10px;        /* Uniform rounding */
+        font-weight: bold;
+        width: 100px;               /* Fixed width keeps all the same size */
+        display: inline-block;
+        text-align: center;
+    }
+
+    .btn-buy {
+        padding: 14px 32px;         /* Ensure all buttons have equal padding */
+        font-size: 1.11rem;         /* Make sure font size matches */
+        border-radius: 10px;        /* Uniform rounding */
+        font-weight: bold;
+        width: 100px;               /* Fixed width keeps all the same size */
+        display: inline-block;
+        text-align: center;
     }
 
     .btn-delete {
@@ -128,12 +197,12 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
 
     .action-buttons {
         display: flex;
-        gap: 6px;
+        gap: 12px;
     }
 
     /* Events Table */
     table.table {
-        width: 90%;
+        width: 100%;
         margin: 0 auto 40px auto;
         border-collapse: collapse;
         background: #d3d3d3;
@@ -182,11 +251,12 @@ var selectedCategory = ViewBag.SelectedCategory as int?;
             <option value="">All Categories</option>
             @foreach (var category in categories)
             {
-            <option value="@category.Id" selected="@(selectedCategory == category.Id)">
-                @category.Name
-            </option>
+                <option value="@category.Id" selected="@(selectedCategory == category.Id)">
+                    @category.Name
+                </option>
             }
         </select>
+
     </form>
 
     <a asp-action="Create" class="btn-create">+ Add New Event</a>
